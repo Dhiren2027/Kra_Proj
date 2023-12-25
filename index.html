@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="front.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="" th:href="@{/css/front.css}"/>
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <nav class="nav">
+          <div class = "logo1"><img src="health_care_logo1.jpg" alt=""></div>
+    
+          <div class="hamburger">
+            <span class="line"></span>
+            <span class="line"></span>
+            <span class="line"></span>
+          </div>
+    
+          <div class="nav__link hide" id="navhide">
+            <a href="#">home</a>
+            <a href="about.html">about</a>
+            <a href="contact.html">contact</a>
+            <a href="appointment.html">Appointment</a>
+            <a href="log.html" >Log in</a>
+          </div>
+        </nav>
+      </header>
+
+      <section class="section-one">
+        <div class="background-image image1 active">
+           <div class="section_one_div"> <a href="#" class="button-47">Learn More</a></div>
+        </div>
+        <div class="background-image image2">
+         <div class="section_one_div"> <a href="#" class="button-47">Learn More</a></div>
+        </div>
+        <div class="background-image image3">
+           <div class="section_one_div"> <a href="#" class="button-47">Learn More</a></div>
+        </div>
+        
+
+    </section>
+
+
+
+      <section class="section-two">
+
+    
+        <h1>Our Core Services</h1>
+        <div class="container-two">
+          <div class="flex">
+            <img src="nursing.png" alt="">
+            <h2>Nursing Home</h2>
+            <p>A nursing home is a place for people who don't need to be in a hospital but can't be cared for at home.</p>
+            <div class="button-click-me"><button class="my-btn" >Click Me</button></div>
+          </div>
+          <div class="flex">
+            <img src="reminder.jpg" alt="">
+            <h2>Medicine Schedule</h2>
+            <p>Medicine in the future will give everyone the ability to become their own best healer</p>
+            <div class="button-click-me"><button class="my-btn" > <a href="medicine.html"> Click Me</a></button></div>
+          </div>
+          <div class="flex">
+            <img src="diet.png" alt="">
+            <h2>Diet & Fitness</h2>
+            <p> Your diet is a bank account. Good food choices are good investments. </p>
+            <div class="button-click-me"><button class="my-btn" ><a href="diet_fitness.html"> Click Me</a></button></div>
+          </div>
+        </div>
+        
+      </section>
+    
+      <section class="section-three">
+
+        <div class="left-container">
+            <img src="about.jpg" alt="Your Image">
+        </div>
+        <div class="right-container">
+            <h1 class="right_con_h1">About Us</h1>
+            <h1>We Provide An Ideal Home Environment</h1>
+            <h3>we prioritize the well-being of older individuals by offering a nurturing space designed for their comfort and happiness. Our community emphasizes the importance of shared moments through our Community Dining experiences, fostering a sense of connection and camaraderie. Additionally, we understand the significance of maintaining an active lifestyle in later years, and thus, we provide tailored Maintenance Exercises to promote physical well-being and vitality. </h3>
+        </div>
+      </section>
+
+      <section class="section-four">
+
+        <div class="contact-container">
+            <h1>Get In Touch With Us</h1>
+            <h4 >We welcome your inquiries, feedback, and collaboration opportunities as we strive to create a website that not only informs but also inspires positive connections and a shared commitment to a healthier and happier life.</h4>
+
+            <a href="contact.html" class="contact-button">Contact Us</a>
+        </div>
+      </section>
+
+      <footer>
+        <div class="footer-content">
+          <h3>Made By Dhirenkumar </h3>
+          <p>Stay connected and up-to-date with us on all our social media platforms! Follow us on Facebook, Twitter,
+            Instagram, and LinkedIn for more information, updates, and exclusive content. Join our community and never miss
+            out on our latest news and offers.</p>
+          <ul class="socials">
+            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+            <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+            <li><a href="#"><i class="fa fa-linkedin-square"></i></a></li>
+          </ul>
+        </div>
+        <div class="footer-bottom">
+          <p>copyright &copy; <a href="#">Dhirenkumar</a> </p>
+          <div class="footer-menu">
+            <ul class="f-menu">
+              <li><a href="">Home</a></li>
+              <li><a href="about.html">About</a></li>
+              <li><a href="contact.html">Contact</a></li>
+              <!-- <li><a href="">Blog</a></li> -->
+            </ul>
+          </div>
+        </div>
+    
+      </footer>
+
+
+
+
+
+
+      <script>
+      document.addEventListener('DOMContentLoaded', function() {
+            const images = document.querySelectorAll('.background-image');
+            let currentIndex = 0;
+
+            function changeBackground() {
+                images[currentIndex].classList.remove('active');
+                currentIndex = (currentIndex + 1) % images.length;
+                images[currentIndex].classList.add('active');
+            }
+
+            setInterval(changeBackground, 5000); // Change image every 5 seconds
+        });
+    </script>
+</body>
+</html>

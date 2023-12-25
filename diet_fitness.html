@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Vlog Page</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: rgb(245, 245, 245);
+}
+header {
+      background-color: #c5e0f2;
+      color: #000000;
+      text-align: center;
+      padding: 40px 0;
+     margin-bottom: 8px;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1.2em;
+      margin: 0;
+    }
+
+    nav {
+      text-align: center;
+      background-color: #ffffff;
+      overflow: hidden;
+      height: 40px;
+    }
+
+
+    
+/* hover */
+.nav a {
+  padding: .5em .8em;
+  color: rgba(0, 0, 0, 0.5);
+  position: relative;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.nav a::before,
+.nav a::after {
+  content: '';
+  height: 14px;
+  width: 14px;
+  position: absolute;
+  transition: all .35s ease;
+  opacity: 0;
+}
+
+.nav a::before {
+  content: '';
+  right: 0;
+  top: 0;
+  border-top: 3px solid #3E8914;
+  border-right: 3px solid #2E640F;
+  transform: translate(-100%, 50%);
+}
+
+.nav a:after {
+  content: '';
+  left: 0;
+  bottom: 0;
+  border-bottom: 3px solid #2E640F;
+  border-left: 3px solid #3E8914;
+  transform: translate(100%, -50%)
+}
+
+.nav a:hover:before,
+.nav a:hover:after{
+  transform: translate(0,0);
+  opacity: 1;
+}
+
+.nav a:hover {
+  color: #3DA35D;
+}
+/* hover */
+
+    @media screen and (max-width: 600px) {
+      nav a {
+        float: none;
+        display: block;
+        width: 100%;
+        text-align: left;
+      }
+    }
+
+.vlog-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 20px auto;
+}
+
+.vlog-item {
+  width: 45%;
+  background-color: white;
+  margin: 10px;
+  border: 1px solid #ddd;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.vlog-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.vlog-content {
+  padding: 20px;
+}
+
+h2 {
+  color: #333;
+}
+
+p {
+  color: #666;
+}
+
+.read-more-btn {
+  display: block;
+  background-color: #eecc44;
+  color: rgb(0, 0, 0);
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+  border: 1px rgb(0, 0, 0) solid;
+}
+
+.read-more-btn:hover {
+  background-color: rgb(252, 204, 48);
+}
+
+  </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Welcome to Diet and Fitness</h1>
+        <p>Your journey to a healthier lifestyle begins here!</p>
+      </header>
+    
+      <nav class="nav">
+        <a href="front.html">Home</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="appointment.html">Appointment</a>
+      </nav>
+
+  <section class="vlog-container">
+    <div class="vlog-item">
+      <img src="fitness1.jpg" alt="Vlog Image 1" class="vlog-image">
+      <div class="vlog-content">
+        <h2>Who Said I Can Only Go Up the Stairs Once a Day?</h2>
+        <p>When your life gets turned upside down and your regular schedule is on hold, how do you cope? For months and months, I anticipated getting my left hip joint replaced. I emphasize my left hip joint because I’m a righty and you need your right leg to be able to drive....</p>
+        <a href="#" class="read-more-btn">Read More</a>
+      </div>
+    </div>
+
+    <div class="vlog-item">
+      <img src="diet1.jpg" alt="Vlog Image 2" class="vlog-image">
+      <div class="vlog-content">
+        <h2>What Lengths Would You Go to Prevent the Aging Symptoms That Cause You Stress?</h2>
+        <p>Exercise your age away. The physiological changes in our brain are normal parts of aging, but what you might not know is how it can affect movement. My 89-year-old husband knows how lucky he is to be moving as well as he does, because he started exercising at a young...</p>
+        <a href="#" class="read-more-btn">Read More</a>
+      </div>
+    </div>
+
+    <div class="vlog-item">
+      <img src="fitness3.jpg" alt="Vlog Image 3" class="vlog-image">
+      <div class="vlog-content">
+        <h2>Lorem ipsum dolor sit.</h2>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error obcaecati quo earum modi? Voluptatibus dolorum eum, itaque consequuntur veritatis cum.....</p>
+        <a href="#" class="read-more-btn">Read More</a>
+      </div>
+    </div>
+
+    <div class="vlog-item">
+        <img src="fitness4.jpg" alt="Vlog Image 3" class="vlog-image">
+        <div class="vlog-content">
+          <h2>Lorem ipsum dolor sit amet consectetur.</h2>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt blanditiis veniam sint? Consequuntur quos quo, qui cumque sunt perferendis officiis quaerat magnam, commodi quidem maiores....</p>
+          <a href="#" class="read-more-btn">Read More</a>
+        </div>
+      </div>
+
+    <!-- Add more vlog items as needed -->
+
+  </section>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

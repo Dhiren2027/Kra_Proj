@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medicine Reminder</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        #addScheduleForm {
+            width: 400px;
+        }
+
+        #addScheduleForm,
+        #scheduleList {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin: 20px;
+            padding: 20px;
+            box-shadow: rgba(67, 0, 0, 0.25) 0px 5px 15px, rgba(0, 0, 0, 0.1) 0px 3px 5px;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        input,
+        select,
+        button {
+            margin-bottom: 15px;
+            padding: 10px;
+            width: 100%;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #71d6f8;
+            color: #000000;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: rgb(80, 218, 223)(154, 160);
+        }
+
+        .schedule {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 10px;
+            background-color: #fff;
+            box-shadow: rgba(67, 0, 0, 0.1) 0px 3px 5px;
+        }
+
+        .schedule p {
+            margin: 0;
+        }
+
+        .schedule button {
+            margin-top: 5px;
+            background-color: #e74c3c;
+            color: #fff;
+            font-size: 12px; /* Smaller font size for the delete button */
+        }
+
+        .schedule button:hover {
+            background-color: #c0392b;
+        }
+
+        #frequencyOptions,
+        #labelOptions,
+        #timeOptions {
+            display: none;
+        }
+
+        #time,
+        #labelAfter {
+            display: none;
+        }
+
+        .register_button {
+            margin-top: 25px;
+            font-size: 15px;
+        }
+
+
+        /* heart stroke */
+        .heart_div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      height: 157px;
+      width: 288px;
+      position: relative;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
+
+    .heart_img {
+      width: 100px;
+      
+    }
+
+    .heart_img img {
+      max-width: 100%;
+      max-height: 100%;
+    }
+
+    h3 {
+      font-size: 1.2em;
+      margin: 0;
+    }
+
+    .go_to_check_button {
+      align-self: flex-end;
+     
+      padding: 8px 16px;
+      background-color: #3498db;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 1em;
+      display: flex;
+      align-items: center;
+    }
+
+    .go_to_check_button img {
+      margin-left: 5px;
+    }
+
+    </style>
+</head>
+<body>
+
+    <div id="addScheduleForm">
+        <h2>Add Schedule</h2>
+        <label for="medicineName">Medicine Name:</label>
+        <input type="text" id="medicineName">
+
+        <label for="frequency">Frequency:</label>
+        <select id="frequency" onchange="showFrequencyOptions()">
+            <option value="everyday">Everyday</option>
+            <option value="everyXDays">Every X days</option>
+            <option value="dayOfWeek">Day of the week</option>
+            <option value="dayOfMonth">Day of the month</option>
+        </select>
+
+        <div id="frequencyOptions">
+            <label for="daysInterval">Days Interval:</label>
+            <input type="number" id="daysInterval" min="1" value="1">
+
+            <label for="dayOfWeek">Day of the week:</label>
+            <select id="dayOfWeek">
+                <option value="0">Sunday</option>
+                <option value="1">Monday</option>
+                <option value="2">Tuesday</option>
+                <option value="3">Wednesday</option>
+                <option value="4">Thursday</option>
+                <option value="5">Friday</option>
+                <option value="6">Saturday</option>
+            </select>
+
+            <label for="dayOfMonth">Day of the month:</label>
+            <input type="number" id="dayOfMonth" min="1" max="31" value="1">
+        </div>
+
+        <label for="scheduleMode">Schedule Mode:</label>
+        <select id="scheduleMode" onchange="showScheduleModeOptions()">
+            <option value="label">Label</option>
+            <option value="time">Time</option>
+        </select>
+
+        <div id="labelOptions">
+            <label for="label">Label:</label>
+            <select id="label">
+                <option value="afterBreakfast">After Breakfast</option>
+                <option value="afterLunch">After Lunch</option>
+                <option value="afterDinner">After Dinner</option>
+            </select>
+        </div>
+
+        <div id="timeOptions">
+            <label for="time">Time:</label>
+            <input type="time" id="time">
+        </div>
+
+        <button onclick="registerMedication()" class="register_button">Register Medication</button>
+    </div>
+
+    <div class="heart_div">
+        <h3>Check Your Heart Stroke Attack</h3>
+        <div class="heart_img">
+          <img src="heart_stroke.png" alt="">
+        </div>
+        <button class="go_to_check_button">Go to Check <img src="arrow.png" alt=""></button>
+      </div>
+
+
+    <div id="scheduleList">
+        <h2>Schedule List</h2>
+        <div id="schedules"></div>
+    </div>
+
+    <script>
+        function showFrequencyOptions() {
+            const frequency = document.getElementById('frequency').value;
+            const frequencyOptions = document.getElementById('frequencyOptions');
+
+            if (frequency === 'everyXDays' || frequency === 'dayOfWeek' || frequency === 'dayOfMonth') {
+                frequencyOptions.style.display = 'block';
+            } else {
+                frequencyOptions.style.display = 'none';
+            }
+        }
+
+        function showScheduleModeOptions() {
+            const scheduleMode = document.getElementById('scheduleMode').value;
+            const timeOptions = document.getElementById('timeOptions');
+            const labelOptions = document.getElementById('labelOptions');
+            const timeInput = document.getElementById('time');
+            const labelAfter = document.getElementById('labelAfter');
+
+            if (scheduleMode === 'time') {
+                timeOptions.style.display = 'block';
+                labelOptions.style.display = 'none';
+                timeInput.style.display = 'block';
+                labelAfter.style.display = 'none';
+            } else if (scheduleMode === 'label') {
+                timeOptions.style.display = 'none';
+                labelOptions.style.display = 'block';
+                timeInput.style.display = 'none';
+                labelAfter.style.display = 'block';
+            } else {
+                timeOptions.style.display = 'none';
+                labelOptions.style.display = 'none';
+                timeInput.style.display = 'none';
+                labelAfter.style.display = 'none';
+            }
+        }
+
+        function registerMedication() {
+            const medicineName = document.getElementById('medicineName').value;
+            const frequency = document.getElementById('frequency').value;
+            const daysInterval = document.getElementById('daysInterval').value;
+            const dayOfWeek = document.getElementById('dayOfWeek').value;
+            const dayOfMonth = document.getElementById('dayOfMonth').value;
+            const scheduleMode = document.getElementById('scheduleMode').value;
+            const label = document.getElementById('label').value;
+            const time = document.getElementById('time').value;
+
+            const scheduleList = document.getElementById('schedules');
+
+            const scheduleDiv = document.createElement('div');
+            scheduleDiv.className = 'schedule';
+
+            const scheduleInfo = document.createElement('p');
+            scheduleInfo.innerHTML = `<strong>Medicine:</strong> ${medicineName}, <strong>Frequency:</strong> ${frequency}`;
+
+            if (scheduleMode === 'time') {
+                scheduleInfo.innerHTML += `, <strong>Time:</strong> ${time}`;
+            } else if (scheduleMode === 'label') {
+                scheduleInfo.innerHTML += `, <strong>Label:</strong> ${label}`;
+            }
+
+            const scheduleActions = document.createElement('div');
+
+            const deleteButton = document.createElement('button');
+            deleteButton.innerText = 'Delete';
+            deleteButton.onclick = function () {
+                scheduleList.removeChild(scheduleDiv);
+            };
+
+            scheduleActions.appendChild(deleteButton);
+
+            scheduleDiv.appendChild(scheduleInfo);
+            scheduleDiv.appendChild(scheduleActions);
+
+            scheduleList.appendChild(scheduleDiv);
+
+            // Reset form fields
+            document.getElementById('medicineName').value = '';
+            document.getElementById('frequency').value = 'everyday';
+            document.getElementById('daysInterval').value = '1';
+            document.getElementById('dayOfWeek').value = '0';
+            document.getElementById('dayOfMonth').value = '1';
+            document.getElementById('scheduleMode').value = 'label';
+            document.getElementById('label').value = 'afterBreakfast';
+            document.getElementById('time').value = '';
+
+            // Hide frequency options
+            document.getElementById('frequencyOptions').style.display = 'none';
+        }
+    </script>
+
+</body>
+</html>

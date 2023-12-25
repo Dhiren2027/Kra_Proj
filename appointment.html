@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Appointments</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background-color: rgb(148, 243, 255);
+            color: #000000;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .doctor-box {
+            flex: 1 1 calc(33.33% - 20px);
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .doctor-box:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        img {
+            max-width: 100%;
+            max-height: 150px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            color: #007BFF;
+        }
+
+        p {
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Doctor Appointments</h1>
+    </header>
+    <div class="container">
+        <div class="doctor-box">
+            <img src="doctor1.jpg" alt="Doctor 1">
+            <h2>Dr. John Doe</h2>
+            <p>Cardiologist</p>
+            <button>Schedule Appointment</button>
+        </div>
+
+        <div class="doctor-box">
+            <img src="doctor2.jpg" alt="Doctor 2">
+            <h2>Dr. Jane Smith</h2>
+            <p>Orthopedic Surgeon</p>
+            <button>Schedule Appointment</button>
+        </div>
+
+        <div class="doctor-box">
+            <img src="doctor3.jpg" alt="Doctor 3">
+            <h2>Dr. David Johnson</h2>
+            <p>Dermatologist</p>
+            <button>Schedule Appointment</button>
+        </div>
+
+        <div class="doctor-box">
+            <img src="doctor4.jpg" alt="Doctor 4">
+            <h2>Dr. Sarah Lee</h2>
+            <p>Pediatrician</p>
+            <button>Schedule Appointment</button>
+        </div>
+
+        <div class="doctor-box">
+            <img src="doctor5.jpg" alt="Doctor 5">
+            <h2>Dr. Michael Brown</h2>
+            <p>Neurologist</p>
+            <button>Schedule Appointment</button>
+        </div>
+
+        <div class="doctor-box">
+            <img src="doctor6.jpg" alt="Doctor 6">
+            <h2>Dr. Emily White</h2>
+            <p>ENT Specialist</p>
+            <button>Schedule Appointment</button>
+        </div>
+
+        <!-- Add more doctor boxes as needed -->
+
+    </div>
+</body>
+</html>
